@@ -17,6 +17,7 @@ import java.util.List;
 
 import git.batteryeater.R;
 import git.batteryeater.engine.DvdEngine;
+import git.batteryeater.engine.OrientationManager;
 import git.batteryeater.engine.UpdateManager;
 import git.batteryeater.location.GpsManager;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private GpsManager gpsManager;
 
     private NotificationHelper notificationHelper;
+    private OrientationManager orientationManager;
     private final Handler handler = new Handler();
     private final List<Integer> images = Arrays.asList(
             R.drawable.caillou1,
@@ -42,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         setBrightness(0.75f);
 
-
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
             WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
             layoutParams.preferredDisplayModeId = 0;
@@ -50,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main);
+
+        TextView orientationTxt = findViewById(R.id.orientation_text);
+        orientationManager = new OrientationManager(this, orientationTxt);
 
         notificationHelper = new NotificationHelper(this);
         ImageView logo = findViewById(R.id.caillou_logo);
@@ -88,6 +92,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void requestGpsPermission() {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        orientationManager.start();
     }
 
     @Override

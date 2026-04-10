@@ -12,8 +12,23 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="#33FFFFFF"
+        android:layout_marginBottom="30dp"
         android:textSize="24sp"
         android:text="Recherche GPS..." />
+
+    <TextView
+        android:id="@+id/orientation_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:padding="8dp"
+        android:text="Orientation : Portrait (0°)"
+        android:textColor="#33FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:background="#33000000"
+        android:gravity="center" />
 
     <ImageView
         android:id="@+id/caillou_logo"

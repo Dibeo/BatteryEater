@@ -6,3 +6,4 @@
 - [ ] Brigthness forced at 75%
 - [x] Thrifty noti, too loud + too much vibration
 - [ ] No Dark Mode
+- [ ] Thrifty sensor (gyroscope)
