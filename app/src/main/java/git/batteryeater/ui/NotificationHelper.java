@@ -9,6 +9,8 @@ import android.os.Build;
 import android.provider.Settings;
 import androidx.core.app.NotificationCompat;
 
+import git.batteryeater.R;
+
 public class NotificationHelper {
     private static final String CHANNEL_ID = "dvd_ultra_priority";
     private final Context context;
@@ -46,7 +48,7 @@ public class NotificationHelper {
 
     public void triggerNotification() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-                .setSmallIcon(android.R.drawable.ic_dialog_alert)
+                .setSmallIcon(R.drawable.caillou1)
                 .setContentTitle("ALERTE CAILLOU")
                 .setContentText("Contact visuel établi !")
                 .setPriority(NotificationCompat.PRIORITY_MAX)

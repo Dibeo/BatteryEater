@@ -4,4 +4,4 @@
 - [x] Keep Screen On
 - [ ] FPS Higher then 60fps
 - [ ] Brigthness forced at 75%
-- [ ] Thrifty noti, too loud + too much vibration
+- [x] Thrifty noti, too loud + too much vibration
