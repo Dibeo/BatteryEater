@@ -31,8 +31,10 @@ public class GpsManager {
     }
 
     public void startUpdates(Context context) {
-        LocationRequest request = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000)
-                .setMinUpdateIntervalMillis(500)
+        LocationRequest request = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 500)
+                .setMinUpdateIntervalMillis(200)
+                .setGranularity(Granularity.GRANULARITY_FINE)
+                .setWaitForAccurateLocation(true)
                 .build();
 
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
