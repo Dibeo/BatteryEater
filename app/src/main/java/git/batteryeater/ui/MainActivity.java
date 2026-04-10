@@ -17,6 +17,7 @@ import java.util.List;
 
 import git.batteryeater.R;
 import git.batteryeater.engine.DvdEngine;
+import git.batteryeater.engine.UpdateManager;
 import git.batteryeater.location.GpsManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        UpdateManager updateManager = new UpdateManager(this);
+        updateManager.checkForUpdates("Dibeo", "BatteryEater");
+
         setBrightness(0.75f);
 
 
