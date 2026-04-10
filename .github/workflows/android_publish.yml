@@ -1,6 +1,7 @@
 name: Android Build & Publish
 
 on:
+  workflow_dispatch: 
   push:
     tags:
       - 'v*' # Se déclenche uniquement quand vous poussez un tag (ex: v1.0, v2.1)
@@ -32,7 +33,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
-          files: app/build/outputs/apk/release/app-release.unsigned.apk # Vérifiez le chemin exact après le build
+          files: app/build/outputs/apk/release/app-release-unsigned.apk 
           name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
