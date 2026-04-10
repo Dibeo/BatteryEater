@@ -6,10 +6,20 @@
     android:background="#000000"
     android:keepScreenOn="true">
 
+    <TextView
+        android:id="@+id/gps_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#33FFFFFF"
+        android:textSize="24sp"
+        android:text="Recherche GPS..." />
+
     <ImageView
-        android:id="@+id/dvd_logo"
-        android:layout_width="150dp"
+        android:id="@+id/caillou_logo"
+        android:layout_width="100dp"
         android:layout_height="100dp"
+        android:contentDescription="DVD like caillou"
         android:src="@drawable/caillou1" />
 
 </FrameLayout>
