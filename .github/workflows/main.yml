@@ -1,8 +1,12 @@
 name: "Green CodeQL Analysis"
+
 env:
   TARGET_LANGUAGE: "java"
+  
 on:
   workflow_dispatch:
+  push:
+  
 jobs:
   analyze:
     name: Analyze
