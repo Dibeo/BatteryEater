@@ -3,6 +3,7 @@ package git.batteryeater.ui;
 import android.Manifest;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Choreographer;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
@@ -33,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setBrightness(0.75f);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+            layoutParams.preferredDisplayModeId = 0;
+            getWindow().setAttributes(layoutParams);
+        }
+
         setContentView(R.layout.activity_main);
 
         ImageView logo = findViewById(R.id.caillou_logo);
@@ -55,13 +63,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startLoop() {
-        handler.postDelayed(new Runnable() {
+        Choreographer.getInstance().postFrameCallback(new Choreographer.FrameCallback() {
             @Override
-            public void run() {
+            public void doFrame(long frameTimeNanos) {
                 dvdEngine.updateStep();
-                handler.postDelayed(this, 16);
+                Choreographer.getInstance().postFrameCallback(this);
             }
-        }, 16);
+        });
     }
 
     private void requestGpsPermission() {
