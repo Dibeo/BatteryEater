@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     private DvdEngine dvdEngine;
     private GpsManager gpsManager;
+
+    private NotificationHelper notificationHelper;
     private final Handler handler = new Handler();
     private final List<Integer> images = Arrays.asList(
             R.drawable.caillou1,
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setBrightness(0.75f);
 
+
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
             WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
             layoutParams.preferredDisplayModeId = 0;
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        notificationHelper = new NotificationHelper(this);
         ImageView logo = findViewById(R.id.caillou_logo);
         TextView gpsText = findViewById(R.id.gps_text);
         final View container = findViewById(R.id.container);
@@ -51,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
         gpsManager = new GpsManager(this, (lat, lon) ->
                 gpsText.setText(String.format("Lat: %.6f\nLon: %.6f", lat, lon))
         );
+
+        logo.setOnClickListener(v -> {
+            notificationHelper.triggerNotification();
+            dvdEngine.nextImage();
+        });
 
         container.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override

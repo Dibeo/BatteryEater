@@ -34,7 +34,7 @@ public class DvdEngine {
         }
     }
 
-    private void nextImage() {
+    public void nextImage() {
         if (images.isEmpty()) return;
         currentIndex = (currentIndex + 1) % images.size();
         logo.setImageResource(images.get(currentIndex));
