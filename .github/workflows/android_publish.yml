@@ -67,7 +67,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build Release APK
-        run: ./gradlew assembleRelease
+        run: ./gradlew assembleDebug
 
       # 2. CRÉATION DE LA RELEASE AVEC LE TAG CORRESPONDANT
       - name: Create GitHub Release
