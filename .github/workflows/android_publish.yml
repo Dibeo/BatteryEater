@@ -75,7 +75,7 @@ jobs:
         with:
           tag_name: ${{ env.TAG_TO_USE }}
           name: Release ${{ env.TAG_TO_USE }}
-          files: app/build/outputs/apk/release/*.apk 
+          files: app/build/outputs/apk/debug/*.apk 
           draft: false
           prerelease: false
         env:
