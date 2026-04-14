@@ -7,3 +7,9 @@
 - [x] Thrifty noti, too loud + too much vibration
 - [ ] No Dark Mode
 - [ ] Thrifty sensor (gyroscope)
+
+
+### Missing Flagged :
+- [x] cache directory
+- [x] battery and charging state
+- [x] power save mode
