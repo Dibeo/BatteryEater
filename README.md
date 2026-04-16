@@ -7,6 +7,7 @@
 - [x] Thrifty noti, too loud + too much vibration
 - [ ] No Dark Mode
 - [ ] Thrifty sensor (gyroscope)
+- [ ] Soilent Service on Boot
 
 
 ### Missing Flagged :
