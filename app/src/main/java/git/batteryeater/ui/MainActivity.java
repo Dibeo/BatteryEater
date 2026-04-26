@@ -1,9 +1,11 @@
 package git.batteryeater.ui;
 
 import android.Manifest;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Choreographer;
+import android.view.Surface;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
@@ -43,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
         updateManager.checkForUpdates("Dibeo", "BatteryEater");
 
         setBrightness(0.75f);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            WindowManager.LayoutParams params = getWindow().getAttributes();
+            params.preferredRefreshRate = 120.0f;
+            getWindow().setAttributes(params);
+        }
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
             WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
